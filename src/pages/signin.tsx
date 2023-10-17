@@ -1,3 +1,5 @@
+import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 import React, { useState, SyntheticEvent, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { signin } from '../api/auth';
