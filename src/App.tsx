@@ -4,9 +4,9 @@ import LandingPage from './pages/LandingPage'
 import Header from './components/Header';
 import MarketPlace from './pages/MarketPlace'
 import Navbar from './components/Navbar';
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import Profile from './pages/Profile';
+import Signup from './pages/signup';
+import Signin from './pages/signin';
+import Profile from './pages/profile';
 import './App.css';
 
 
