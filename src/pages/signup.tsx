@@ -12,8 +12,8 @@ export default function Signup() {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: SyntheticEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (evt: SyntheticEvent) => {
+        evt.preventDefault();
         setLoading(true);
         try {
             console.log(username, email, password);

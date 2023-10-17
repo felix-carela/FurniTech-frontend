@@ -7,10 +7,8 @@ import Linens from './pages/Linens';
 import Furniture from './pages/Furniture';
 import MarketPlace from './pages/MarketPlace'
 import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Signup from './pages/Signup';
-import Signin from './pages/Signin';
-import Profile from './pages/Profile';
+import Signup from './pages/signup';
+import Signin from './pages/signin';
 import './App.css';
 
 
