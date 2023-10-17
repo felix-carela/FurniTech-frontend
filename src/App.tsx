@@ -2,16 +2,18 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import MarketPlace from './pages/MarketPlace'
+import Signup from './pages/signup';
+import Signin from './pages/signin';
 import './App.css';
 
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
-        <Route path='/signup' element={<MarketPlace/>}/>
-        <Route path='/signin' /> 
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/signin' element={<Signin/>}/> 
         <Route path='/:userId' />
         <Route path='/cart'/>
         <Route path='/mp/' element={<MarketPlace/>}/>
