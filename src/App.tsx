@@ -2,12 +2,14 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import MarketPlace from './pages/MarketPlace'
+import Navbar from './components/Navbar';
 import './App.css';
 
 
 function App() {
   return (
     <BrowserRouter>
+        <Navbar/>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/signup' element={<MarketPlace/>}/>
@@ -25,3 +27,4 @@ function App() {
   );
 }
 
+export default App;
