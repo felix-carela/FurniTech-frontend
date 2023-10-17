@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 import './App.css';
 
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path='/mp/linens' element={<MarketPlace linens={true}/>} />
         <Route path='/:itemId' />
       </Routes>
+        <Footer/>
     </BrowserRouter>
   );
 }

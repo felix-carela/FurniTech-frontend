@@ -1,0 +1,12 @@
+.footer-container{
+        display: flex;
+        justify-content: space-evenly;
+}
+
+.footer-links{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0 15px 0 15px !important;
+        flex-direction: column;
+}
