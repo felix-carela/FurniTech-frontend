@@ -7,14 +7,14 @@ import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Profile from './pages/Profile';
-import './styles/App.css';
+import './App.css';
 
 
 
 export default function App() {
   return (
     <BrowserRouter>
-        <Header />
+        <Header/>
         <Navbar/>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>

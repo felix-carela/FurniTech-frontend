@@ -5,12 +5,14 @@ import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
     <div>
-      <nav className="navbar-container">
-      <NavLink to="/mp/lighting">Lighting</NavLink>
-      <NavLink to="/mp/furniture">Furniture</NavLink>
-      <NavLink to="/mp/decor">Decor</NavLink>
-      <NavLink to="/mp/linens">Linens</NavLink>
-    </nav>
+      <div className='navbar-container'>
+        <nav className="navbar-container">
+          <div className='navbar-button'><NavLink to="/mp/lighting">Lighting</NavLink></div>
+          <div className='navbar-button'><NavLink to="/mp/furniture">Furniture</NavLink></div>
+          <div className='navbar-button'><NavLink to="/mp/decor">Decor</NavLink></div>
+          <div className='navbar-button'><NavLink to="/mp/linens">Linens</NavLink></div>
+        </nav>
+    </div>
     </div>
   )
 }

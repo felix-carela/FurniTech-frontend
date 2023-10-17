@@ -48,7 +48,7 @@ export default function Signin() {
             </form>
             <span className="signin-alt">
                 {'Not a user? '}
-                <Link to="/auth/signup">Go to Signup</Link>
+                <Link to="/signup">Go to Signup</Link>
                 {' instead.'}
             </span>
         </div>

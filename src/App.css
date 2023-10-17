@@ -1,8 +1,4 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
 
-}
 .App {
   text-align: center;
 }
@@ -45,3 +41,6 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+@import url('./styles/header.css');
+@import url('./styles/navbar.css');
