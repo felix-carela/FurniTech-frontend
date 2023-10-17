@@ -1,15 +1,14 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
-import Lighting from './pages/Lighting'
-import Decor from './pages/Decor'
-import Linens from './pages/Linens';
-import Furniture from './pages/Furniture';
+import Header from './components/Header';
 import MarketPlace from './pages/MarketPlace'
 import Navbar from './components/Navbar';
-import Signup from './pages/signup';
-import Signin from './pages/signin';
-import './App.css';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
+import Profile from './pages/Profile';
+import './styles/App.css';
+
 
 
 export default function App() {
