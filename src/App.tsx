@@ -22,11 +22,9 @@ export default function App() {
         <Route path='/mp/lighting' element={<MarketPlace lighting={true}/>}/>
         <Route path='/mp/decor' element={<MarketPlace decor={true}/>}/>
         <Route path='/mp/furniture'element={<MarketPlace furniture={true}/>} />
-        <Route path='/mp/linen' element={<MarketPlace linen={true}/>} />
+        <Route path='/mp/linens' element={<MarketPlace linens={true}/>} />
         <Route path='/:itemId' />
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
