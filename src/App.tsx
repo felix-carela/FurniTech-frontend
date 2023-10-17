@@ -2,8 +2,8 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import MarketPlace from './pages/MarketPlace'
-import Signup from './pages/signup';
-import Signin from './pages/signin';
+import Signup from './pages/Signup';
+import Signin from './pages/Signin';
 import './App.css';
 
 
