@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import React, { useState, SyntheticEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import { signup } from '../api/auth';
@@ -11,8 +10,8 @@ export default function Signup() {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (e: SyntheticEvent) => {
-        e.preventDefault();
+    const handleSubmit = async (evt: SyntheticEvent) => {
+        evt.preventDefault();
         setLoading(true);
         try {
             console.log(username, email, password);
