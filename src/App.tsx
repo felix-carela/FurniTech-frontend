@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import LandingPage from './pages/LandingPage'
 import MarketPlace from './pages/MarketPlace'
+import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import './App.css';
@@ -10,6 +11,7 @@ import './App.css';
 export default function App() {
   return (
     <BrowserRouter>
+        <Navbar/>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
@@ -27,3 +29,4 @@ export default function App() {
   );
 }
 
+export default App;
