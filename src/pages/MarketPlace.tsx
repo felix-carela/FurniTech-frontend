@@ -5,14 +5,16 @@ interface Props{
     lighting?:boolean;
     furniture?:boolean;
     decor?:boolean;
-    linen?:boolean;
+    linens?:boolean;
 }
 
-const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linen}) => {
+const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
 
 
   return (
-    <div>MarketPlace</div>
+    <div>
+      <h1>MarketPlace</h1>
+    </div>
   )
 }
 
