@@ -1,6 +1,7 @@
-import Navbar from "../components/Navbar";
 import React, { useState, SyntheticEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Header from '../components/Header';
 // import { signup } from '../api/auth';
 
 export default function Signup() {
