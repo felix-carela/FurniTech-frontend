@@ -1,6 +1,7 @@
-// import {createContext, useState, useEffect} from 'react'
+import {createContext, useState, useEffect} from 'react'
 
-// export const CartContext = createContext()
+const [user, updateUser] = useState()
 
-// const [user, updateUser] = useState()
 
+
+export default {}
