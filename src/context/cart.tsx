@@ -6,6 +6,7 @@ interface Item {
   quantity: number;
   category: string;
   price: number;
+  color:string;
 }
 
 interface CartContextType {

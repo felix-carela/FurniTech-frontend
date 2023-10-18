@@ -21,7 +21,8 @@ const api = axios.create({
 
 api.interceptors.request.use(
     (config) => {
-          
+
+  
       const csrfToken = document.cookie
         .split('; ')
         .find(row => row.startsWith('csrftoken'))
