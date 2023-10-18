@@ -21,18 +21,16 @@ const api = axios.create({
 
 api.interceptors.request.use(
     (config) => {
-      const token = LOCALSTORAGE_KEY ? localStorage.getItem(LOCALSTORAGE_KEY) : null;
-      if (token) {
-        config.headers['Authorization'] = `Bearer ${token}`;
-      }
-  
+          
       const csrfToken = document.cookie
         .split('; ')
-        .find(row => row.startsWith('XSRF-TOKEN'))
+        .find(row => row.startsWith('csrftoken'))
         ?.split('=')[1];
+
+        console.log(csrfToken)
   
       if (csrfToken) {
-        config.headers['X-XSRF-TOKEN'] = csrfToken;
+        config.headers['X-CSRFToken'] = csrfToken;
         }
       
       return config;
