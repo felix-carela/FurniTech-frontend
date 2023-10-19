@@ -27,9 +27,9 @@ const MarketPlace: React.FC<Props> = ({ lighting, furniture, decor, linens }) =>
     <div>
       <h1>MarketPlace</h1>
       <div>
-        {/* {items.map((item, index) => (
-          <Item key={index} item={item} />
-        ))} */}
+        {items.map((item, index) => (
+          <Item key={index} id={item['id']} image={item['image']} name={item['name']} color={item['color']} price={item['price']} description={item['description']} category={item['category']} tags={item['tags']} />
+        ))}
       </div>
     </div>
   );
