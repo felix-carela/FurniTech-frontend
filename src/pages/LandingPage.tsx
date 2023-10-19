@@ -4,6 +4,16 @@ import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Item from '../components/Item';
 
+interface ItemProps {
+  id: number;
+  image: string;
+  name: string;
+  color: string;
+  price: string;
+  description: string;
+  category: string;
+  tags: string;
+}
 
 export default function LandingPage() {
   const [displayItems, setDisplayItems] = useState([])
@@ -33,7 +43,21 @@ export default function LandingPage() {
   return (
     <div>
       LandingPage
-      <Item/>
+      {displayItems.map((item, index) => {
+    return (
+        <Item 
+            key={index} 
+            id={item['id']} 
+            image={item["image"]} 
+            name={item["name"]} 
+            color={item["color"]} 
+            price={item["price"]} 
+            description={item["description"]} 
+            category={item['category']} 
+            tags={item['tags']} 
+        />
+    );
+})}
     </div>
   )
 }

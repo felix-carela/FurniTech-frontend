@@ -24,10 +24,10 @@ export default function App() {
         <Route path='/:userId' element={<Profile/>}/>
         <Route path='/cart'/>
         <Route path='/mp/' element={<MarketPlace/>}/>
-        <Route path='/mp/lighting' element={<MarketPlace lighting={true}/>}/>
-        <Route path='/mp/decor' element={<MarketPlace decor={true}/>}/>
-        <Route path='/mp/furniture'element={<MarketPlace furniture={true}/>} />
-        <Route path='/mp/linens' element={<MarketPlace linens={true}/>} />
+        <Route path='/mp/lighting' element={<MarketPlace lighting={'lighting'}/>}/>
+        <Route path='/mp/decor' element={<MarketPlace decor={'decor'}/>}/>
+        <Route path='/mp/furniture'element={<MarketPlace furniture={'furniture'}/>} />
+        <Route path='/mp/linens' element={<MarketPlace linens={'linens'}/>} />
         <Route path='/:itemId' />
       </Routes>
         <Footer/>
