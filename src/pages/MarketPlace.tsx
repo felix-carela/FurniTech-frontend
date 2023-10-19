@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import { getAllItems } from '../api/routes';
 import Item from '../components/Item'
 // import Navbar from '../components/Navbar';
@@ -69,7 +69,7 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default MarketPlace;
