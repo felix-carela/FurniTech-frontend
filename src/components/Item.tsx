@@ -14,15 +14,17 @@ import AddToCartButton from './AddToCartButton'
   
   const Item: React.FC<ItemProps> = ({ id, image, name, color, price, description, category, tags }) => {
     return (
-      <div>
-        <div>
-          <img src={image} alt={name}></img>
-          <a href='/signin'>
-            <h3>{name}</h3>
-            <div>${price}</div>
-          </a>
-        </div>
-        <AddToCartButton />
+      <div className='item'>
+          <div>
+            <div className="item-image-container">
+              <a href='/signin'><img className='item-image' src={image} alt={name}></img></a>
+            </div>
+            <div className='item-name-price'>
+              <p className='item-name-price-title'>{name}</p>
+              <p>${price}</p> <br />
+              <AddToCartButton />
+            </div>
+          </div>
       </div>
     );
   };

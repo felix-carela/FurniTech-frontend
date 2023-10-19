@@ -61,13 +61,13 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
   }, [type, items]);
 
   return (
-    <div>
-      <h1>MarketPlace</h1>
-      <div>
-        {filterItem.map((item, index) => (
-          <Item key={index} id={item.id} image={item.image} name={item.name} color={item.color} price={item.price} description={item.description} category={item.category} tags={item.tags} />
-        ))}
-      </div>
+      <div className='items-container'>
+          {/* <div className='item-container-description'> */}
+        {items.map((item, index) => (
+
+          <Item key={index} id={item['id']} image={item['image']} name={item['name']} color={item['color']} price={item['price']} description={item['description']} category={item['category']} tags={item['tags']} />
+          ))}
+          {/* </div> */}
     </div>
   );
 };
