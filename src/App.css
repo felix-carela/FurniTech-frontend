@@ -1,12 +1,28 @@
+@import url('./styles/header.css');
+@import url('./styles/navbar.css');
+@import url('./styles/footer.css');
+
+
 *{
   box-sizing: border-box;
   margin:  0;
   padding: 0;
-  background-color: rgb(104, 72, 43)
-  }
+  background-color: rgb(211, 193, 175)
+}
+
+text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  background: none;
+}
 
 .App {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-logo {
@@ -48,6 +64,50 @@
   justify-content: space-evenly;
 }
 
-@import url('./styles/header.css');
-@import url('./styles/navbar.css');
-@import url('./styles/footer.css');
+.items-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-evenly;
+}
+
+.item {
+  width: calc(33.3333% - 10px) ; 
+  box-sizing: border-box ;
+  margin-bottom: 40px ;
+}
+
+.item-image {
+  max-height: 250px !important;
+  max-width: 230px !important;
+}
+
+.item-image-container {
+  position: relative;
+  width: 100%; 
+  padding-top: 56.25%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.item-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, 0);
+}
+
+.item-name-price{
+  font-family: 'Montserrat', sans-serif;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8vw;
+}
+
+.item-name-price-title{
+font-size: 16px;
+letter-spacing: 2.5px;
+}

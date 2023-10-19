@@ -19,15 +19,17 @@ interface Item {
   
   const Item: React.FC<ItemProps> = ({item}) => {
     return (
-      <div>
-        <div>
-          <img src={item['image']} alt={item['name']}></img>
-          <a href='/signin'>
-            <h3>{item['name']}</h3>
-            <div>${item['price']}</div>
-          </a>
-        </div>
-        <AddToCartButton item={item}/>
+      <div className='item'>
+          <div>
+            <div className="item-image-container">
+              <a href='/signin'><img className='item-image' src={item['image']} alt={item['name']}></img></a>
+            </div>
+            <div className='item-name-price'>
+              <p className='item-name-price-title'>{item['name']}</p>
+              <p>${item['price']}</p> <br />
+              <AddToCartButton item={item}/>
+            </div>
+          </div>
       </div>
     );
   };

@@ -8,6 +8,10 @@
     padding: 0 5vw;
     height: 20vh;
 }
+.header-container onHover {
+    transition: background 500ms ease-in-out 0s;
+    opacity: 100%;
+}
 
 .header-signin {
     display: flex;

@@ -60,14 +60,15 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
   }, [type, items]);
 
   return (
-    <div>
-      <h1>MarketPlace</h1>
-      <div>
+    <div className='items-container'>
+          {/* <div className='item-container-description'> */}
+
         {filterItem.map((item, index) => (
           <ItemComp key={index} item={item} />
         ))}
+        {/* </div> */}
+
       </div>
-    </div>
   );
 };
 
