@@ -1,12 +1,15 @@
 import { createContext, useState, useEffect, ReactNode } from 'react';
 
 interface Item {
-  photo: string;
-  id: string;
-  quantity: number;
+  id: number;
+  image: string;
+  name: string;
+  color: string;
+  price: string;
+  description: string;
   category: string;
-  price: number;
-  color:string;
+  tags: string;
+  quantity:number;
 }
 
 interface CartContextType {
@@ -30,7 +33,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     if (cartItemExists) {
       updateCartItems(
         cartItems.map((cartItem) =>
-          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
+          cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
         )
       );
     } else {
@@ -57,7 +60,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const getTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, item) => total + parseInt(item.price) * item.quantity, 0);
   };
 
   useEffect(() => {

@@ -2,28 +2,31 @@ import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import React, { useState, SyntheticEvent, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import { signin } from '../api/auth';
-// import { AuthContext } from "../context/AuthContextComponent";
+import {useAuth} from '../context/AuthContext'
 
 export default function Signin() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
-    // const { setIsLoggedIn, setUser } = useContext(AuthContext);
+
+    const { login } = useAuth()
 
     const handleSubmit = async (evt: SyntheticEvent) => {
         evt.preventDefault();
         try {
             console.log(username, password);
-            // const response = await signin(username, password);
-            // console.log(response);
-            // setIsLoggedIn(true);
-            // setUser(response.user);
+            const response = await login(username, password);
             navigate('/');
-            // console.log(response);
+            console.log(response);
         } catch (error) {
             console.error('Error during sign in: ', error);
         }
+    }
+
+    if(username){
+        return (
+            <div> `You are already signed in, ${username}`</div>
+        )
     }
 
     return (

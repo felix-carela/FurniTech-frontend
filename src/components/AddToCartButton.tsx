@@ -1,11 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react';
+import { CartContext } from '../context/cart';
 
-function AddToCartButton() {
-  return (
-    <div>
-        <button>Add to Cart</button>       
-    </div>
-  )
+interface Item {
+  id: number;
+  image: string;
+  name: string;
+  color: string;
+  price: string;
+  description: string;
+  category: string;
+  tags: string;
+  quantity:number;
 }
 
-export default AddToCartButton
+interface AddToCartButtonProps {
+  item: Item;
+}
+
+function AddToCartButton({ item }: AddToCartButtonProps) { 
+  const context = useContext(CartContext);
+
+  if (!context) {
+    throw new Error('AddToCartButton must be used within a CartProvider');
+  }
+
+  const { addToCart } = context;
+
+  const handleAddToCart = () => {
+    addToCart(item);
+  };
+
+  return (
+    <div>
+      <button onClick={handleAddToCart}>Add to Cart</button>       
+    </div>
+  );
+}
+
+export default AddToCartButton;

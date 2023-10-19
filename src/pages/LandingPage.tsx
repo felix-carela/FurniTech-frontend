@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { getAllItems } from '../api/routes';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
-import Item from '../components/Item';
+import ItemComp from '../components/ItemComp';
 
-interface ItemProps {
+interface Item {
   id: number;
   image: string;
   name: string;
@@ -13,6 +13,7 @@ interface ItemProps {
   description: string;
   category: string;
   tags: string;
+  quantity:number;
 }
 
 export default function LandingPage() {
@@ -37,24 +38,14 @@ export default function LandingPage() {
     getFeatureItems();
   }, []);
 
-  console.log("In Landing Page Display Items:")
-  console.log(displayItems)
-
   return (
     <div>
       LandingPage
       {displayItems.map((item, index) => {
     return (
-        <Item 
+        <ItemComp
             key={index} 
-            id={item['id']} 
-            image={item["image"]} 
-            name={item["name"]} 
-            color={item["color"]} 
-            price={item["price"]} 
-            description={item["description"]} 
-            category={item['category']} 
-            tags={item['tags']} 
+            item={item}
         />
     );
 })}

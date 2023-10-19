@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { CartProvider } from './context/cart';
+import { AuthProvider } from './context/AuthContext';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  <AuthProvider>
     <CartProvider>
         <App />
     </CartProvider>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

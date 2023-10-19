@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
+import Cart from './components/Cart'
 import './App.css';
 
 
@@ -22,7 +23,7 @@ export default function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/signin' element={<Signin/>}/> 
         <Route path='/:userId' element={<Profile/>}/>
-        <Route path='/cart'/>
+        <Route path='/cart' element={<Cart />}/>
         <Route path='/mp/' element={<MarketPlace/>}/>
         <Route path='/mp/lighting' element={<MarketPlace lighting={'lighting'}/>}/>
         <Route path='/mp/decor' element={<MarketPlace decor={'decor'}/>}/>

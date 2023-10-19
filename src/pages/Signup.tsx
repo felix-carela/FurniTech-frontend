@@ -2,7 +2,7 @@ import React, { useState, SyntheticEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Header from '../components/Header';
-// import { signup } from '../api/auth';
+import { signup } from '../api/routes';
 
 export default function Signup() {
     const [username, setUsername] = useState<string>('');
@@ -17,8 +17,8 @@ export default function Signup() {
         setLoading(true);
         try {
             console.log(username, email, password);
-            // const response = await signup(username, email, password);
-            // console.log(response);
+            const response = await signup({username, email, password});
+            console.log(response);
 
             setMessage('Successfully created a new account! Redirecting...');
             setTimeout(() => {

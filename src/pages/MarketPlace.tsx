@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllItems } from '../api/routes';
-import Item from '../components/Item'
-// import Navbar from '../components/Navbar';
-// import Header from '../components/Header';
+import ItemComp from '../components/ItemComp'
 
 interface Props{
     lighting?:string;
@@ -12,14 +10,15 @@ interface Props{
 }
 
 interface Item {
-  name:string;
-  image: string;
   id: number;
-  category: string;
-  price: string;
+  image: string;
+  name: string;
   color: string;
-  description:string;
-  tags:string;
+  price: string;
+  description: string;
+  category: string;
+  tags: string;
+  quantity:number;
 }
 
 interface ApiResponse {
@@ -65,7 +64,7 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
       <h1>MarketPlace</h1>
       <div>
         {filterItem.map((item, index) => (
-          <Item key={index} id={item.id} image={item.image} name={item.name} color={item.color} price={item.price} description={item.description} category={item.category} tags={item.tags} />
+          <ItemComp key={index} item={item} />
         ))}
       </div>
     </div>
