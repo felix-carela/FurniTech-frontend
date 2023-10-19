@@ -1,42 +1,30 @@
-import React from 'react'
-import AddToCartButton from './AddToCartButton'
+import React from 'react';
+import AddToCartButton from './AddToCartButton';
 
-// interface ItemProps {
-//   id: number;
-//   imageUrl: string;
-//   name: string;
-//   color: string;
-//   price: number;
-//   category: string;
-// }
+interface ItemProps {
+  id: number;
+  image: string;
+  name: string;
+  color: string;
+  price: string;
+  description: string;
+  category: string;
+  tags: string;
+}
 
-// const Item: React.FC<ItemProps> = ({ id, imageUrl, name, color, price, category }) => {
-//   return (
-//     <div>
-//       <div>
-//         <img src={imageUrl} alt={name}></img>
-//         <a href='/signin'>
-//           <h3>{name}</h3>
-//           <div>${price}</div>
-//         </a>
-//       </div>
-//       <button>Add To Cart</button>
-//     </div>
-//   )
-// }
-const Item: React.FC = () => {
+const Item: React.FC<ItemProps> = ({ id, image, name, color, price, description, category, tags }) => {
   return (
     <div>
       <div>
-        <img src='' alt='Test'></img>
+        <img src={image} alt={name}></img>
         <a href='/signin'>
-          <h3>Linen</h3>
-          <div>$45</div>
+          <h3>{name}</h3>
+          <div>${price}</div>
         </a>
       </div>
-      <AddToCartButton/>
+      <AddToCartButton />
     </div>
-  )
-}
+  );
+};
 
-export default Item
+export default Item;

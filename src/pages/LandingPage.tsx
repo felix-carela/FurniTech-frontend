@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAllItems } from '../api/routes';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
@@ -33,7 +33,6 @@ export default function LandingPage() {
   return (
     <div>
       LandingPage
-      <Item/>
     </div>
   )
 }
