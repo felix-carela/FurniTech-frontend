@@ -2,14 +2,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(0deg, rgba(38, 22, 10, 0) 0%, rgb(38, 22, 10) 100%);
     color: #fff;
     transition: background 500ms ease-in-out 0s;
     padding: 0 5vw;
     height: 20vh;
 }
-.header-container onHover {
+.header-container:hover {
     transition: background 500ms ease-in-out 0s;
+    background: none;
     opacity: 100%;
 }
 
@@ -30,4 +30,15 @@
 .header-cart-svg {
     height: 28px;
     width: auto;
+}
+
+.nav-container {
+    transition: all 0.3s ease-out;
+    /* background: linear-gradient(0deg, rgba(38, 22, 10, 0) 0%, rgb(38, 22, 10) 100%); */
+}
+
+.nav-container:hover {
+    background-color: white;
+    transition: all 0.3s ease-out;
+    /* background: none; */
 }
