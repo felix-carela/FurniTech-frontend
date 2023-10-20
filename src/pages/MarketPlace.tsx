@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAllItems } from '../api/routes';
 import ItemComp from '../components/ItemComp'
-
+import {useAuth} from '../context/AuthContext'
+ 
 interface Props{
     lighting?:string;
     furniture?:string;
@@ -29,6 +30,15 @@ const MarketPlace: React.FC<Props> = ({lighting, furniture, decor, linens}) => {
   const [items, setItems] = useState<Item[]>([])
   const [type, setType] = useState<string | null>(null)
   const [filterItem, setFilter] = useState<Item[]>([])
+
+  const {username} = useAuth()
+
+
+  useEffect(() => {
+    if (username) {
+      console.log(username)
+    }
+  }, [username])
 
   useEffect(() => {
     const getItems = async() => {

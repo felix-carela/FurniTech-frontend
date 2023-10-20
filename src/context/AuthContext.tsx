@@ -1,10 +1,11 @@
 import React, { createContext, useState, useContext, FunctionComponent } from 'react';
-import api from '../api/apiConfig'
+import {apiWithCredentials, apiWithoutCredentials} from '../api/apiConfig'
 
 // Define the shape of your context
 interface AuthContextProps {
-  authToken: string | null;
+  // authToken: string | null;
   username: string | null;
+  email: string | null;
   login: (username: string, password: string) => Promise<void>;
 }
 
@@ -15,12 +16,14 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ children }) =>  {
-  const [authToken, setAuthToken] = useState<string | null>(null);
+  // const [authToken, setAuthToken] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null)
   const [username, setUsername] = useState<string | null>(null);
+  console.log(email, username)
 
   const login = async (username: string, password: string) => {
     try {
-      const response = await api.post('/login/', {
+      const response = await apiWithoutCredentials.post('/login/', {
         username, 
         password
       }, {
@@ -28,10 +31,9 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
           'Content-Type': 'application/json',
         },
       });
-  
       if (response.status === 200) { 
-        setAuthToken(response.data.csrftoken);
         setUsername(response.data.username); 
+        setEmail(response.data.email)
       } else {
         console.error('Login failed:', response.data);
       }
@@ -41,7 +43,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
   };
 
   return (
-    <AuthContext.Provider value={{ authToken, username, login }}>
+    <AuthContext.Provider value={{ username, login, email }}>
       {children}
     </AuthContext.Provider>
   );

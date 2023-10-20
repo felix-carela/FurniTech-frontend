@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, SyntheticEvent } from 'react';
 import { CartContext } from '../context/cart';
+import { createOrder } from '../api/routes';
 
 interface Item {
   id: number;
@@ -13,16 +14,23 @@ interface Item {
   quantity: number;
 }
 
+interface OrderItem {
+    id: number;
+    quantity:number;
+}
+
 export default function Cart() {
   const context = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [populatedCart, setPopulatedCart] = useState<boolean>(false)
+  const [username, setUsername] = useState<string>('fuckmylife');
+
 
   if (!context) {
     throw new Error('cartItems must be used within a CartProvider');
   }
 
-  const { cartItems, removeFromCart, getTotal } = context;
+  const { cartItems, removeFromCart, clearCart, getTotal } = context;
 
   useEffect(()=>{
     if(cartItems.length>=1){
@@ -35,6 +43,29 @@ export default function Cart() {
   const handleRemoveFromCart = (item: Item) => {
     removeFromCart(item);
   };
+
+  const handleCheckout = async (evt: SyntheticEvent) => {
+    evt.preventDefault();
+    try {
+      const order_items = cartItems.map((item) => ({
+        item: item.id, // Use "item" instead of "id" as expected by the server
+        quantity: item.quantity,
+      }));
+  
+      const requestData = {
+        username,
+        order_items,
+      };
+  
+      const response = await createOrder(requestData);
+      console.log(response);
+  
+      clearCart();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  
 
   useEffect(() => {
     const total = getTotal();
@@ -70,7 +101,7 @@ export default function Cart() {
             <div>Total:</div>
             <div>${totalPrice}</div>
           </div>
-          <button className='cart-checkout-button'>CHECKOUT</button>
+          <button className='cart-checkout-button' onClick={handleCheckout}>CHECKOUT</button>
         </div>
       </div>
     </div>
