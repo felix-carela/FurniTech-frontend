@@ -22,7 +22,7 @@ export default function App() {
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/signin' element={<Signin/>}/> 
-        <Route path='/:userId' element={<Profile/>}/>
+        <Route path='/:username' element={<Profile/>}/>
         <Route path='/cart' element={<Cart />}/>
         <Route path='/mp/' element={<MarketPlace/>}/>
         <Route path='/mp/lighting' element={<MarketPlace lighting={'lighting'}/>}/>

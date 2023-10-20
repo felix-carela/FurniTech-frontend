@@ -15,11 +15,16 @@ if (!process.env.REACT_APP_LOCAL_API_URL || !process.env.REACT_APP_DEPLOYED_API_
   throw new Error(API_URL);
 }
 
-const api = axios.create({
+const apiWithCredentials = axios.create({
+  baseURL: API_URL, 
+  withCredentials: true
+});
+
+const apiWithoutCredentials = axios.create({
   baseURL: API_URL
 });
 
-api.interceptors.request.use(
+apiWithCredentials.interceptors.request.use(
     (config) => {
 
   
@@ -28,8 +33,6 @@ api.interceptors.request.use(
         .find(row => row.startsWith('csrftoken'))
         ?.split('=')[1];
 
-        console.log(csrfToken)
-  
       if (csrfToken) {
         config.headers['X-CSRFToken'] = csrfToken;
         }
@@ -40,9 +43,5 @@ api.interceptors.request.use(
       return Promise.reject(error);
     })
 
-const getApi = () => {
-  return api;
-};
-
-export default api;
+export { apiWithCredentials, apiWithoutCredentials };
 

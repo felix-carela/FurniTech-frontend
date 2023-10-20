@@ -3,6 +3,8 @@ import { getAllItems } from '../api/routes';
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import ItemComp from '../components/ItemComp';
+import {useAuth} from '../context/AuthContext'
+import { useParams } from "react-router-dom";
 
 interface Item {
   id: number;
@@ -25,7 +27,6 @@ export default function LandingPage() {
         const data = await getAllItems();
 
         if(!data||!Array.isArray(data.results)){
-          console.log('it aint here', data.results);
           return;
         }
 

@@ -1,13 +1,23 @@
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
-import React, { useState, SyntheticEvent, useContext } from "react";
+import React, { useState, SyntheticEvent, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {useAuth} from '../context/AuthContext'
+import Profile from './Profile'
 
 export default function Signin() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (username) {
+            console.log(username)
+        }
+        if (password) {
+            console.log(password)
+        }
+    }, [username, password])
 
     const { login } = useAuth()
 
@@ -23,11 +33,9 @@ export default function Signin() {
         }
     }
 
-    if(username){
-        return (
-            <div> `You are already signed in, ${username}`</div>
-        )
-    }
+    // if(username){
+    //     <navigate to={`/:${username}`}/>
+    // }
 
     return (
         <div className="signin-container">
