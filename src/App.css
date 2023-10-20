@@ -12,7 +12,7 @@
 }
 
 body {
-  background-color: rgb(211, 193, 175);
+  background-color:#ffffff;
   font-family: 'Montserrat', sans-serif;
   /* background-color: antiquewhite; */
 }
@@ -23,7 +23,12 @@ text {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #3F4531;
+  background: none;
+}
+
+a :hover {
+  color: rgb(0, 0, 0);
   background: none;
 }
 
@@ -68,3 +73,8 @@ a {
 }
 
 
+.add-to-cart-button {
+  border: solid 2px #19323C;
+  border-radius: 4px;
+  padding: 5px;
+}

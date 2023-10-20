@@ -5,7 +5,7 @@
     color: #fff;
     transition: background 500ms ease-in-out 0s;
     padding: 0 5vw;
-    height: 20vh;
+    height: 80px;
 }
 .header-container:hover {
     transition: background 500ms ease-in-out 0s;
@@ -20,10 +20,10 @@
 
 .header-signin-svg {
     color: #fff;
-    height: 24px;
+    height: 28px;
     width: auto;
-    margin: 0 10px -8px;
-    padding-right: 15px;
+    margin: 0 10px -9px;
+    padding-right: 1px;
 
 }
 

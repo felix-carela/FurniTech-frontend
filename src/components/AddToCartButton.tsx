@@ -32,7 +32,7 @@ function AddToCartButton({ item }: AddToCartButtonProps) {
 
   return (
     <div>
-      <button onClick={handleAddToCart}>Add to Cart</button>       
+      <button className='add-to-cart-button' onClick={handleAddToCart}>Add to Cart</button>       
     </div>
   );
 }

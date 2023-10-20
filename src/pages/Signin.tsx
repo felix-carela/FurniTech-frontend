@@ -39,7 +39,7 @@ export default function Signin() {
                     <input
                         type="text"
                         required
-                        placeholder="Username or email"
+                        // placeholder="Username or email"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                     />
@@ -50,7 +50,6 @@ export default function Signin() {
                     <input
                         type="password"
                         required
-                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
