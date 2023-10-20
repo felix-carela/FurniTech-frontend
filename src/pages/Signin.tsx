@@ -7,6 +7,7 @@ import {useAuth} from '../context/AuthContext'
 export default function Signin() {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [message, setMessage] = useState<string>('');
     const navigate = useNavigate();
 
     const { login } = useAuth()
@@ -29,32 +30,41 @@ export default function Signin() {
         )
     }
 
+   
     return (
-        <div className="signin-container">
-            <h1 className="signin-title">Sign In</h1>
-            <form className="signin-form" onSubmit={handleSubmit}>
-                <input
-                    className="signin-input"
-                    type="text"
-                    placeholder="Username or email"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    className="signin-input"
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button className="signin-button">Signin</button>
-            </form>
-            <span className="signin-alt">
+        <div className="container">
+            <div className="card">
+                <h3 className="login">Log in</h3>
+                <div className="inputBox">
+                    <input
+                        type="text"
+                        required
+                        placeholder="Username or email"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <span className="user">USERNAME</span>
+                </div>
+
+                <div className="inputBox">
+                    <input
+                        type="password"
+                        required
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <span>Password</span>
+                </div>
+
+                <button className="enter" onClick={handleSubmit}>Enter</button>
+                {message && <p className="error-message">{message}</p>}
+              <span className="signin-alt">
                 {'Not a user? '}
                 <Link to="/signup">Go to Signup</Link>
                 {' instead.'}
             </span>
+            </div>
         </div>
     );
 }
-
