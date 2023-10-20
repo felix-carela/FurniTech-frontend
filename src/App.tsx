@@ -18,7 +18,6 @@ export default function App() {
   return (
     <BrowserRouter>
         <Header/>
-        <Navbar/>
       <Routes>
         <Route path='/' element={<LandingPage/>}/>
         <Route path='/signup' element={<Signup/>}/>
