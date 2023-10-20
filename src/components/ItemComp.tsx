@@ -22,7 +22,7 @@ interface Item {
       <div className='item'>
           <div>
             <div className="item-image-container">
-              <a href='/signin'><img className='item-image' src={item['image']} alt={item['name']}></img></a>
+              <a href={`/items/${item['id']}`}><img className='item-image' src={item['image']} alt={item['name']}></img></a>
             </div>
             <div className='item-name-price'>
               <p className='item-name-price-title'>{item['name']}</p>

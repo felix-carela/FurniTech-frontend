@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import Profile from './pages/Profile';
+import Details from './pages/Details';
 import Footer from './components/Footer';
 import Cart from './components/Cart'
 import './App.css';
@@ -29,7 +30,7 @@ export default function App() {
         <Route path='/mp/decor' element={<MarketPlace decor={'decor'}/>}/>
         <Route path='/mp/furniture'element={<MarketPlace furniture={'furniture'}/>} />
         <Route path='/mp/linens' element={<MarketPlace linens={'linens'}/>} />
-        <Route path='/:itemId' />
+        <Route path='/items/:itemId' element={<Details/>}/>
       </Routes>
         <Footer/>
     </BrowserRouter>
