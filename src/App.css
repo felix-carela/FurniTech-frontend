@@ -1,12 +1,40 @@
+@import url('./styles/header.css');
+@import url('./styles/navbar.css');
+@import url('./styles/footer.css');
+@import url('./styles/cart.css');
+@import url('./styles/item.css');
+@import url('./styles/signin.css');
+
 *{
   box-sizing: border-box;
   margin:  0;
   padding: 0;
-  background-color: rgb(104, 72, 43)
-  }
+}
+
+body {
+  background-color:#ffffff;
+  font-family: 'Montserrat', sans-serif;
+  /* background-color: antiquewhite; */
+}
+
+text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #3F4531;
+  background: none;
+}
+
+a :hover {
+  color: rgb(0, 0, 0);
+  background: none;
+}
 
 .App {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-logo {
@@ -43,11 +71,10 @@
     transform: rotate(360deg);
   }
 }
-#header-container{
-  display: flex;
-  justify-content: space-evenly;
-}
 
-@import url('./styles/header.css');
-@import url('./styles/navbar.css');
-@import url('./styles/footer.css');
+
+.add-to-cart-button {
+  border: solid 2px #19323C;
+  border-radius: 4px;
+  padding: 5px;
+}
