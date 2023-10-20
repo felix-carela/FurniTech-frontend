@@ -34,7 +34,7 @@ export default function Signin() {
     return (
         <div className="container">
             <div className="card">
-                <h3 className="login">Log in</h3>
+                <h3 className="signup">Log in</h3>
                 <div className="inputBox">
                     <input
                         type="text"

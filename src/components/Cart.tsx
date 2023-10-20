@@ -16,12 +16,21 @@ interface Item {
 export default function Cart() {
   const context = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [populatedCart, setPopulatedCart] = useState<boolean>(false)
 
   if (!context) {
     throw new Error('cartItems must be used within a CartProvider');
   }
 
   const { cartItems, removeFromCart, getTotal } = context;
+
+  useEffect(()=>{
+    if(cartItems.length>=1){
+      setPopulatedCart(true)
+    }else{
+      setPopulatedCart(false)
+    }
+  },[cartItems])
 
   const handleRemoveFromCart = (item: Item) => {
     removeFromCart(item);
@@ -45,16 +54,15 @@ export default function Cart() {
               <p className="cart-item-quantity">Quantity: {item.quantity}</p>
               <p className="cart-item-price">Price: ${item.price}</p>
             </div>
-            <button
-              className="remove-button"
-              onClick={() => handleRemoveFromCart(item)}
-            >
-              Remove
-            </button>
+            <div>
+             <svg className="remove-button" onClick={() => handleRemoveFromCart(item)}
+             width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 5L11 11M11 5L17 11M19 1H8L1 8L8 15H19C19.5304 15 20.0391 14.7893 20.4142 14.4142C20.7893 14.0391 21 13.5304 21 13V3C21 2.46957 20.7893 1.96086 20.4142 1.58579C20.0391 1.21071 19.5304 1 19 1Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              </div>
           </div>
         ))}
         <div className='cart-separator'>
-          <hr className='cart-separator-hr'></hr>
         </div>
         <div className='cart-checkout-container'>
           <p className='cart-order-details'>ORDER DETAILS</p>

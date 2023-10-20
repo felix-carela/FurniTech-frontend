@@ -1,10 +1,10 @@
-.singup {
+.signup {
     color: #000;
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
     font-weight: bold;
-    font-size: x-large;
+    font-size: medium;
     margin-top: 1.5em;
     font-family: 'Montserrat', sans-serif;
   }
@@ -17,7 +17,7 @@
   width: 333px;
   flex-direction: column;
   gap: 23px;
-  background: #CDD3CE;
+  background: #D5DCD1;
   border-radius: 8px;
   margin: 0 auto;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 10px;
@@ -37,7 +37,7 @@
     border: none;
     color: #000;
     font-size: 1em;
-    background: #CDD3CE;
+    background: #D5DCD1;
     border-left: 2px solid #000;
     border-bottom: 2px solid #000;
     transition: 0.3s;
@@ -59,7 +59,7 @@
     text-transform: uppercase;
     transition: 0.5s;
     letter-spacing: 3px;
-    background-color: #CDD3CE;
+    background-color: #D5DCD1;
     border-radius: 8px;
   }
   
@@ -70,7 +70,7 @@
     padding: 5px 10px;
     background: #19323C;
     letter-spacing: 0.2em;
-    color: #F9F8F8;
+    color: #D5DCD1;
     border: 2px;
   }
   
@@ -81,7 +81,7 @@
     padding: 5px 10px;
     background: #19323C;
     letter-spacing: 0.2em;
-    color: #CDD3CE;
+    color: #D5DCD1;
     border: 2px;
   }
   

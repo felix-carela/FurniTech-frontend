@@ -20,7 +20,6 @@ interface Item {
   const Item: React.FC<ItemProps> = ({item}) => {
     return (
       <div className='item'>
-          <div>
             <div className="item-image-container">
               <a href={`/items/${item['id']}`}><img className='item-image' src={item['image']} alt={item['name']}></img></a>
             </div>
@@ -30,7 +29,6 @@ interface Item {
               <AddToCartButton item={item}/>
             </div>
           </div>
-      </div>
     );
   };
   
