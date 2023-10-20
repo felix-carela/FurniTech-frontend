@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import {useAuth} from '../context/AuthContext'
 import Navbar from './Navbar';
 
+
 function Header() {
   const {username} = useAuth()
   const [link, updateLink] = useState('/signin')

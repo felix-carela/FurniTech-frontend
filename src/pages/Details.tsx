@@ -38,7 +38,6 @@ const Details: React.FC = () => {
 
   return (
     <div className='details-page-container'>
-      <h1>This is the details Page!!</h1>
       <div className='details-page-image-container'>
         <img src={item.image} alt={item.name} />
       </div>

@@ -13,7 +13,7 @@
   .item-image {
     max-height: 300px !important;
     max-width: 350px !important;
-    min-height: 300px !important;
+    min-height: 256px !important;
     min-width: 350px !important;
     background-color: #fff;
   }
@@ -41,10 +41,12 @@
     font-size: small;
     display: flex;
     flex-direction: column;
-    margin-left: 8vw;
+    text-align: center;
+    margin-top: 15px;
   }
   
   .item-name-price-title{
-  font-size: 16px;
-  letter-spacing: 2.5px;
+    font-size: 16px;
+    letter-spacing: 2.5px;
+    text-align: center;
   }

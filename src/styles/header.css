@@ -18,6 +18,12 @@
 
 }
 
+.header-message {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 .header-signin-svg {
     color: #fff;
     height: 28px;

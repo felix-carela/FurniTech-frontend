@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../api/routes';
@@ -32,6 +33,7 @@ const Profile = () => {
 
   if (!username) {
     return <div>You must be logged in to see this page.</div>;
+
   }
 
   return (
