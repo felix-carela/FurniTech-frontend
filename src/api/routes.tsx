@@ -1,8 +1,8 @@
-import api from './apiConfig'
+import {apiWithoutCredentials, apiWithCredentials} from './apiConfig'
 
 export const getAllItems = async () => {
     try{
-        const response = await api.get('/items/')
+        const response = await apiWithoutCredentials.get('/items/')
         return response.data
     } catch (error) {
         console.log(error)
@@ -18,18 +18,36 @@ interface signUpParams {
 
 export const signup = async ({username, email, password} : signUpParams) => {
     try{
-        const response = await api.post('/signup/', {
+        const response = await apiWithoutCredentials.post('/signup/', {
             username,
             password,
             email
         })
 
-        // if(response){
-        //     localStorage.setItem(username)
-        // }
+        if(response){
+            localStorage.setItem('username',response.data.username)
+            localStorage.setItem('email', response.data.email)
+        }
         return response.data
     }catch(error){
         console.log(error)
+    }
+}
+
+export const logout = async () => {
+    try {
+        const response = await apiWithCredentials.post('/logout/', {}, { withCredentials: true });
+
+        if (response.status === 200) { 
+            console.log('Successfully logged out');
+            return response.data;
+        } else {
+            console.error(`Unexpected response code: ${response.status}`);
+            throw new Error('Failed to logout');
+        }
+    } catch (error) {
+        console.error('An error occurred during the logout process:', error);
+        throw error;
     }
 }
 
