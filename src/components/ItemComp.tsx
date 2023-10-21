@@ -25,7 +25,7 @@ interface Item {
             </div>
             <div className='item-name-price'>
               <p className='item-name-price-title'>{item['name']}</p>
-              <p>${item['price']}</p> <br />
+              <p>${item['price']}</p>
               <AddToCartButton item={item}/>
             </div>
           </div>

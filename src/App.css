@@ -4,6 +4,7 @@
 @import url('./styles/cart.css');
 @import url('./styles/item.css');
 @import url('./styles/signin.css');
+@import url('./styles/details.css');
 
 *{
   box-sizing: border-box;
@@ -77,10 +78,11 @@ a :hover {
   border: solid 2px #19323C;
   border-radius: 4px;
   padding: 5px;
+  background-color: transparent;
 }
 
 .add-to-cart-button:hover {
-  background-color: #0d2b37;
+  background-color: #19323C;
   color: #fff;
   cursor: pointer;
 }
