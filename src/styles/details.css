@@ -17,7 +17,7 @@
   
   .details-page-info-container {
     flex: 1;
-    padding: 20px;
+    padding: 0 30px;
   }
   
   .details-name {
@@ -31,9 +31,10 @@
   }
   
   .details-description {
-    font-size: 16px;
-    line-height: 23px;
-    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: light;
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .details-color, .details-category, .details-tags {
