@@ -13,3 +13,17 @@
         margin: 0 15px 0 15px !important;
         flex-direction: column;
 }
+
+.footer-names {
+        color: #fff !important;
+        margin: 10px auto;
+}
+
+.footer-names:hover {
+        text-decoration: underline;
+        
+}
+
+.footer-teams {
+        text-transform: uppercase;
+}
