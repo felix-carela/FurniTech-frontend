@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, SyntheticEvent } from 'react';
 import { CartContext } from '../context/cart';
 import { createOrder } from '../api/routes';
+import {useAuth} from '../context/AuthContext'
 
 interface Item {
   id: number;
@@ -16,14 +17,18 @@ interface Item {
 
 interface OrderItem {
     id: number;
+    image:string;
+    name:string;
+    price:string;
     quantity:number;
 }
 
 export default function Cart() {
+  const {username} = useAuth()
   const context = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [populatedCart, setPopulatedCart] = useState<boolean>(false)
-  const [username, setUsername] = useState<string>('fuckmylife');
+
 
 
   if (!context) {
@@ -48,7 +53,9 @@ export default function Cart() {
     evt.preventDefault();
     try {
       const order_items = cartItems.map((item) => ({
-        item: item.id, // Use "item" instead of "id" as expected by the server
+        item: item.id,
+        image: item.image,
+        price: item.price,
         quantity: item.quantity,
       }));
   
@@ -56,6 +63,8 @@ export default function Cart() {
         username,
         order_items,
       };
+
+      console.log(order_items)
   
       const response = await createOrder(requestData);
       console.log(response);

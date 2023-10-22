@@ -11,15 +11,6 @@ export default function Signin() {
     const [message, setMessage] = useState<string>('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (username) {
-            console.log(username)
-        }
-        if (password) {
-            console.log(password)
-        }
-    }, [username, password])
-
     const { login } = useAuth()
 
     const handleSubmit = async (evt: SyntheticEvent) => {
@@ -27,16 +18,14 @@ export default function Signin() {
         try {
             console.log(username, password);
             const response = await login(username, password);
-            navigate('/');
+            if(response!==null){
+                navigate('/');
+            }
             console.log(response);
         } catch (error) {
             console.error('Error during sign in: ', error);
         }
     }
-
-    // if(username){
-    //     <navigate to={`/:${username}`}/>
-    // }
 
    
     return (

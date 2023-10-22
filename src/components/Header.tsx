@@ -6,19 +6,15 @@ import Navbar from './Navbar';
 
 function Header() {
   const {username} = useAuth()
-  const [link, updateLink] = useState('/signin')
-
-  console.log(username)
+  const [link, updateLink] = useState<string>('/signin')
 
   useEffect(() => {
-    if(username!==null&&username!==undefined){
+    if(username!=='Guest'){
       updateLink(`/${username}`)
     }else{
       updateLink('/signin')
     }
-
-  }, [username]);
-
+  }, [username])
 
   return (
     <div className='nav-container'>
