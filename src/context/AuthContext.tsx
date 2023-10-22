@@ -9,6 +9,7 @@ interface AuthContextProps {
   login: (username: string, password: string) => Promise<void>;
   logout: () => Promise<void>
   deleteUser: () => Promise<void>
+  updateUser: (username:string) => Promise<void>
 }
 
 interface AuthProviderProps {
@@ -71,7 +72,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
     }
 }
 
-  const updateUser = async () => {
+  const updateUser = async (username:string) => {
     const csrfToken = localStorage.getItem('csrfToken')
     try{
       const response = await apiWithCredentials.put('/update-username/', {username}, {
@@ -80,6 +81,9 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
           'X-CSRFToken' : csrfToken
         }
       })
+      if(response.status===200){
+        setUsername(response.data.new_username)
+      }
       console.log(response)
     }catch(error){
       console.log(error)
@@ -110,7 +114,7 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
   }
 
   return (
-    <AuthContext.Provider value={{ username, login, logout, deleteUser, email }}>
+    <AuthContext.Provider value={{ username, login, logout, deleteUser, updateUser, email }}>
       {children}
     </AuthContext.Provider>
   );

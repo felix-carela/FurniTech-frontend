@@ -15,7 +15,7 @@ interface Orders{
 const Profile = () => {
   const {username, logout, deleteUser} = useAuth()
   const [previousOrders, setPreviousOrders] = useState<Orders[]>([])
-  const [changeName, setNameChange] = useState<Boolean>(false)
+  const [changeName, setNameChange] = useState<boolean>(false)
   const navigate = useNavigate();
 
   useEffect(()=> {

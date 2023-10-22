@@ -1,18 +1,45 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { useAuth } from '../context/AuthContext'
+import '../styles/nameChange.css'
 
 interface Show {
     show:boolean;
 }
 
+
+
 export default function NameChange({show}:Show) {
-    
-useState(()=> {
+    const [display, setDisplay] = useState<string>('hidden')
+    const setNewUsername = useRef<HTMLInputElement>(null)
+    const {username, updateUser} = useAuth()
 
-})
+    useEffect(()=>{
+        if(!show){
+            setDisplay('hidden')
+        }else{
+            setDisplay('show')
+        }
+    }, [display, show])
 
-    const {username} = useAuth()
+    const onSubmit = async (e:React.FormEvent) => {
+        e.preventDefault();
+        if(setNewUsername.current){
+            const newUsername = setNewUsername.current.value
+        try{
+            const response = await updateUser(newUsername)
+            console.log(response)
+        }catch(error){
+            console.log(error)
+        }
+        }
+    }
+
+
   return (
-    <div className={show}><p>{username}</p></div>
+    <div className={display + ' ' + 'element'} >
+        <p>{username}</p>
+        <input type="text" ref={setNewUsername} />
+        <button onClick={onSubmit}>Update Username</button>
+    </div>
   )
 }
