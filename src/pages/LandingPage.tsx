@@ -27,8 +27,8 @@ export default function LandingPage() {
 
   return (
     <div>
-      {/* <h1>RECENTLY ADDED ITEMS</h1> */}
       <Carousel items={displayItems} />
+      <h1 className='featured-item-title'>Featured Items</h1>
     </div>
   );
 

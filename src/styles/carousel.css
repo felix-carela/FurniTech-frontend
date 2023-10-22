@@ -37,7 +37,6 @@ Style for the carousel section
     position: relative;
     height: 100%;
     width: 300px; /* Set a fixed width for each item */
-    margin-bottom: 150px;
     margin-top: 60px;
 }
 
@@ -99,4 +98,12 @@ item-price::before {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.featured-item-title {
+    font-weight: lighter;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 200px;;
 }
