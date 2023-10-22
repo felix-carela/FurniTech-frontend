@@ -24,12 +24,10 @@ export default function LandingPage() {
     getFeatureItems();
   }, []);
 
-  console.log("In landing page");
-  console.log(displayItems);
 
   return (
     <div>
-      <h1>RECENTLY ADDED ITEMS</h1>
+      {/* <h1>RECENTLY ADDED ITEMS</h1> */}
       <Carousel items={displayItems} />
     </div>
   );

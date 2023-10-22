@@ -20,9 +20,9 @@ const Carousel: React.FC<CarouselProps> = ({ items }) => {
           <div key={item.id} className="carousel-item">
             <Link to={`/items/${item.id}`}>
               <div className="item-info">
-                <span className="item-name">{item.name}</span>
-                <span className="item-price">${item.price}</span>
                 <img src={item.image} alt={item.name} />
+                <span className="item-name">{item.name}</span>
+                {/* <span className="item-price">${item.price}</span> */}
               </div>
             </Link>
           </div>
