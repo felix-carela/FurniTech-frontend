@@ -39,16 +39,15 @@ const Details: React.FC = () => {
   return (
     <div className='details-page-container'>
       <div className='details-page-image-container'>
-        <img src={item.image} alt={item.name} />
+        <img className='details-image' src={item.image} alt={item.name} />
       </div>
       <div className='details-page-info-container'>
-        <h2>{item.name}</h2>
-        <p><strong>Starting at </strong>${item.price}</p>
-        <p><strong>Description: </strong></p>
-        <p>{item.description}</p>
-        <p><strong>Color:</strong> {item.color}</p>
-        <p><strong>Category:</strong> {item.category}</p>
-        <p><strong>Tags:</strong> {item.tags}</p>
+        <p className='details-name'>{item.name}</p>
+        <p className='details-price'>Starting at ${item.price}</p> <br/>
+        <p className='details-description'>{item.description}</p>
+        <p className='details-color'><strong>Color:</strong> {item.color}</p>
+        <p className='details-category'><strong>Category:</strong> {item.category}</p>
+        <p className='details-tags'><strong>Tags:</strong> {item.tags}</p>
         <AddToCartButton item={item}/>
       </div>
     </div>
