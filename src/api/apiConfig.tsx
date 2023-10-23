@@ -21,7 +21,8 @@ const apiWithCredentials = axios.create({
 });
 
 const apiWithoutCredentials = axios.create({
-  baseURL: API_URL
+  baseURL: API_URL,
+  withCredentials:true
 });
 
 apiWithCredentials.interceptors.request.use(

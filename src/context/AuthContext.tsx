@@ -4,9 +4,12 @@ import {apiWithCredentials, apiWithoutCredentials} from '../api/apiConfig'
 // Define the shape of your context
 interface AuthContextProps {
   // authToken: string | null;
-  username: string | null;
+  username: string;
   email: string | null;
   login: (username: string, password: string) => Promise<void>;
+  logout: () => Promise<void>
+  deleteUser: () => Promise<void>
+  updateUser: (username:string) => Promise<void>
 }
 
 interface AuthProviderProps {
@@ -16,10 +19,8 @@ interface AuthProviderProps {
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ children }) =>  {
-  // const [authToken, setAuthToken] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null)
-  const [username, setUsername] = useState<string | null>(null);
-  console.log(email, username)
+  const [username, setUsername] = useState<string>('Guest');
 
   const login = async (username: string, password: string) => {
     try {
@@ -34,6 +35,8 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
       if (response.status === 200) { 
         setUsername(response.data.username); 
         setEmail(response.data.email)
+        localStorage.setItem('csrfToken', response.data.csrfToken)
+        localStorage.setItem('username', response.data.username)
       } else {
         console.error('Login failed:', response.data);
       }
@@ -42,8 +45,76 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
     }
   };
 
+  const logout = async () => {
+    const csrfToken = localStorage.getItem('csrfToken')
+    try {
+        const response = await apiWithCredentials.post('/logout/', {}, { 
+            headers: {
+                'X-CSRFToken' : csrfToken
+            },
+            withCredentials: true 
+        });
+
+        if (response.status === 200) { 
+            localStorage.removeItem('csrfToken')
+            localStorage.removeItem('username')
+            localStorage.removeItem('cartItems')
+            setUsername('Guest')
+            setEmail(null)
+            return response.data;
+        } else {
+            console.error(`Unexpected response code: ${response.status}`);
+            throw new Error('Failed to logout');
+        }
+    } catch (error) {
+        console.error('An error occurred during the logout process:', error);
+        throw error;
+    }
+}
+
+  const updateUser = async (username:string) => {
+    const csrfToken = localStorage.getItem('csrfToken')
+    try{
+      const response = await apiWithCredentials.put('/update-username/', {username}, {
+        withCredentials:true,
+        headers:{
+          'X-CSRFToken' : csrfToken
+        }
+      })
+      if(response.status===200){
+        setUsername(response.data.new_username)
+      }
+      console.log(response)
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  const deleteUser = async () => {
+    const csrfToken = localStorage.getItem('csrfToken')
+    try{
+      const response = await apiWithCredentials.delete('/delete-user/', {
+        withCredentials:true,
+        headers:{
+          'X-CSRFToken': csrfToken
+        }
+      })
+      if(response.status===200){
+        localStorage.removeItem('csrfToken')
+        localStorage.removeItem('username')
+        localStorage.removeItem('cartItems')
+        setUsername('Guest')
+        setEmail(null)
+      }
+      console.log('USER HAS BEEN EVICERATED')
+
+    }catch(error){
+      console.log('User Not Autorized to delete account')
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ username, login, email }}>
+    <AuthContext.Provider value={{ username, login, logout, deleteUser, updateUser, email }}>
       {children}
     </AuthContext.Provider>
   );

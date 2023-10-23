@@ -34,24 +34,6 @@ export const signup = async ({username, email, password} : signUpParams) => {
     }
 }
 
-export const logout = async () => {
-    try {
-        const response = await apiWithCredentials.post('/logout/', {}, { withCredentials: true });
-
-        if (response.status === 200) { 
-            console.log('Successfully logged out');
-            return response.data;
-        } else {
-            console.error(`Unexpected response code: ${response.status}`);
-            throw new Error('Failed to logout');
-        }
-    } catch (error) {
-        console.error('An error occurred during the logout process:', error);
-        throw error;
-    }
-}
-
-
 interface createOrderParams {
     username: string;
     order_items: { item: number; quantity: number }[];
@@ -59,10 +41,16 @@ interface createOrderParams {
 
 
 export const createOrder = async ({ username, order_items }: createOrderParams) => {
+    const csrfToken = localStorage.getItem('csrfToken')
     try {
         const response = await apiWithCredentials.post('/order-create/', {
             username,
             order_items
+        }, {
+            headers:{
+                'X-CSRFToken' : csrfToken
+            },
+            withCredentials:true
         });
         return response.data;
     } catch (err) {
@@ -71,8 +59,14 @@ export const createOrder = async ({ username, order_items }: createOrderParams) 
 }
 
 export const getOrders = async (username:string) => {
+    let csrfToken = localStorage.getItem('csrfToken')
     try {
-        const response = await apiWithCredentials.get(`orders/by-username/${username}/`);
+        const response = await apiWithCredentials.get(`orders/by-username/${username}/`, {
+            headers:{
+                'X-CSRFToken' : csrfToken
+            },
+            withCredentials:true
+        });
         return response.data;
     } catch (err) {
         console.log(err);
