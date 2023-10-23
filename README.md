@@ -1,46 +1,106 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Furnitech
 
-## Available Scripts
+RH Furniture is an application designed to facilitate the exploration and purchase of a wide array of furniture products. Users have the capability to establish an account, peruse an extensive inventory of furniture items, and conveniently add their selections to the shopping cart for either immediate or deferred acquisition.
 
-In the project directory, you can run:
+## Wire Frames
 
-### `npm start`
+**App Home page**
+![image](<Homepage.png>)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Login Page**
+![image](<Loginpage.png>)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Show page**
+![image](<Showpage.png>)
 
-### `npm test`
+**Detail page**
+![image](<Detailpage.png>)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Cart page**
+![image](<Cart.png>)
 
-### `npm run build`
+## How to work on this App
+this app let users can create their own account. before they sign in account, they only can view for those items. They cannot add those items to the cart. This furniture app show 4 category for home-furnishings. user also can view item's detail. User's shopping cart will show add items ,quantity and price. also use can check total price for this order. User can remove items form their own cart and add more stuff on that order.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![HTML](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 
-### `npm run eject`
+### Routes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **Home**: Access the landing page.
+  - Path: `/`
+  - Component: `<LandingPage />`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Signup**: Access the signup page.
+  - Path: `/signup`
+  - Component: `<Signup />`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- **Signin**: Access the signin page.
+  - Path: `/signin`
+  - Component: `<Signin />`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- **User Profile**: Access user profiles. The `userId` parameter is used.
+  - Path: `/:userId`
+  - Component: `<Profile />`
 
-## Learn More
+- **Cart**: Access the cart page.
+  - Path: `/cart`
+  - Component: `<Cart />`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Marketplace**: Access the marketplace.
+  - Path: `/mp/`
+  - Component: `<MarketPlace />`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Marketplace - Lighting**: Access the marketplace's lighting section.
+  - Path: `/mp/lighting`
+  - Component: `<MarketPlace lighting={'lighting'} />`
+
+- **Marketplace - Decor**: Access the marketplace's decor section.
+  - Path: `/mp/decor`
+  - Component: `<MarketPlace decor={'decor'} />`
+
+- **Marketplace - Furniture**: Access the marketplace's furniture section.
+  - Path: `/mp/furniture`
+  - Component: `<MarketPlace furniture={'furniture'} />`
+
+- **Marketplace - Linens**: Access the marketplace's linens section.
+  - Path: `/mp/linens`
+  - Component: `<MarketPlace linens={'linens'} />`
+
+- **Item Details**: Access individual item details. The `itemId` parameter is used.
+  - Path: `/items/:itemId`
+  - Component: `<Details />`
+
+### MVP Goals
+
+- As a User, I want to have a home page that has the featured items displayed.
+- As a User, I want to be able to log in and log out.
+- As a User, I want to be able to delete my account.
+- As a User, I want to receive an error message if I enter the wrong credentials.
+- As a User, I want to have a profile page where I am able to see my previous orders.
+- As a User, I want to be able to browse a specific section of furniture/items (Bathroom, Bedroom, Kitchen) to see available products.
+- As a User, I want to be able to click on an item and see its details.
+- As a User, I want to be able to add the item to my cart.
+- As a User, I want to be able to remove an item from my cart.
+- As a User, I want to be able to update the quantity of an item in my cart.
+#### Stretch Goals
+- As a User, I want to be able to filter the items by their color or type of furniture they are.
+- As a User, I want to be able to shop from more sections of furniture.
+- As a User, when I hover over an item's image, it cycles through the same item in different angles/colors.
+
+
+## Team Expectations
+
+#### Front End Developers
+- Gerardo Arriaza Pantaleon , Jasmine Williams & Axel Witt  
+
+#### Backend Developers
+- Guoxing Liu & Felix Carela 
