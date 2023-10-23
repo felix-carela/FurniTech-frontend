@@ -72,17 +72,17 @@ export const AuthProvider: React.FunctionComponent<AuthProviderProps> = ({ child
     }
 }
 
-  const updateUser = async (username:string) => {
+  const updateUser = async (email:string) => {
     const csrfToken = localStorage.getItem('csrfToken')
     try{
-      const response = await apiWithCredentials.put('/update-username/', {username}, {
+      const response = await apiWithCredentials.put('/update-email/', {email}, {
         withCredentials:true,
         headers:{
           'X-CSRFToken' : csrfToken
         }
       })
       if(response.status===200){
-        setUsername(response.data.new_username)
+        setEmail(response.data.new_email)
       }
       console.log(response)
     }catch(error){
