@@ -7,15 +7,19 @@ import OrderTab from './OrderTab'
 import NameChange from './NameChange'
 import '../styles/profile.css'
 
-interface Orders{
-  image:string;
-  item:string;
-  price:string;
+interface Item {
+  item: string;
+  quantity: number; 
+}
+
+interface Order { 
+  order_items: Item[];
+  order_id: number;
 }
 
 const Profile = () => {
   const {username, logout, deleteUser} = useAuth()
-  const [previousOrders, setPreviousOrders] = useState<Orders[]>([])
+  const [previousOrders, setPreviousOrders] = useState<Order[]>([])
   const [changeName, setNameChange] = useState<boolean>(false)
   const navigate = useNavigate();
 
@@ -29,6 +33,7 @@ const Profile = () => {
         if(orders){
           setPreviousOrders(orders)
         }
+        console.log(orders)
       }catch(error){
         console.log(error)
       }
@@ -66,16 +71,16 @@ const Profile = () => {
 
   return (
     <div className={"profile"}>
-      <h1>Welcome to Your Profile, {username}!</h1>
-      {previousOrders&&previousOrders.map((order)=> {
-        return(
-          <OrderTab/>
+      <h1>Welcome, {username}!</h1>
+      {previousOrders&&previousOrders.map((order:Order)=> {
+        return (
+          <OrderTab order_items={order.order_items}/>
         )
       })}
       <NameChange show={changeName}/>
       <button onClick={handleLogout}>Logout</button>
       <button onClick={handleDelete}>Delete Profile</button>
-      <p><a onClick={setNameState} className={"changeName"}>Change Username</a></p>
+      <p><a onClick={setNameState} className={"changeName"}>Change E-mail address</a></p>
     </div>
   );
 };

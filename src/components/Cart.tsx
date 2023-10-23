@@ -24,7 +24,7 @@ interface OrderItem {
 }
 
 export default function Cart() {
-  const {username} = useAuth()
+  const {username, email} = useAuth()
   const context = useContext(CartContext);
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [populatedCart, setPopulatedCart] = useState<boolean>(false)
@@ -61,6 +61,7 @@ export default function Cart() {
       }));
   
       const requestData = {
+        email: email as string,
         username,
         order_items,
       };
