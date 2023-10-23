@@ -54,6 +54,7 @@ export default function Cart() {
     try {
       const order_items = cartItems.map((item) => ({
         item: item.id,
+        name: item.name,
         image: item.image,
         price: item.price,
         quantity: item.quantity,
@@ -63,8 +64,6 @@ export default function Cart() {
         username,
         order_items,
       };
-
-      console.log(order_items)
   
       const response = await createOrder(requestData);
       console.log(response);

@@ -5,6 +5,7 @@ import {useAuth} from '../context/AuthContext'
 import { getOrders } from '../api/routes';
 import OrderTab from './OrderTab'
 import NameChange from './NameChange'
+import '../styles/profile.css'
 
 interface Orders{
   image:string;
@@ -64,7 +65,7 @@ const Profile = () => {
   }, [username]);
 
   return (
-    <div>
+    <div className={"profile"}>
       <h1>Welcome to Your Profile, {username}!</h1>
       {previousOrders&&previousOrders.map((order)=> {
         return(
@@ -72,9 +73,9 @@ const Profile = () => {
         )
       })}
       <NameChange show={changeName}/>
-      <button onClick={handleDelete}>Delete Profile</button>
       <button onClick={handleLogout}>Logout</button>
-      <p><a onClick={setNameState}>Change Username</a></p>
+      <button onClick={handleDelete}>Delete Profile</button>
+      <p><a onClick={setNameState} className={"changeName"}>Change Username</a></p>
     </div>
   );
 };
