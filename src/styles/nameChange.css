@@ -1,0 +1,16 @@
+.hidden{
+    display:none
+}
+
+.show{
+    display:flexbox;
+    position:fixed;
+    top:35%;
+    left:25%;
+    z-index:2;
+    width:350px;
+    height:350px;
+    background-color: white;
+    border:black 2px solid;
+    border-radius:10px;
+}
