@@ -7,23 +7,23 @@ FurniTech is an application designed to facilitate the exploration and purchase 
 
 **App Home page**
 
-![image](<Homepage.png>)
+![image](<images/Homepage.png>)
 
 **Login Page**
 
-![image](<Loginpage.png>)
+![image](<images/Loginpage.png>)
 
 **Show page**
 
-![image](<Showpage.png>)
+![image](<images/Showpage.png>)
 
 **Detail page**
 
-![image](<Detailpage.png>)
+![image](<images/Detailpage.png>)
 
 **Cart page**
 
-![image](<Cart.png>)
+![image](<images/Cart.png>)
 
 ## How to work on this App
 This app let users can create their own account. Before they sign in to an existing account or sign up, users can only view the catalog of available items. They cannot add those items to the cart. This furniture app shows 4 categories  for home-furnishings. User also can view item's details that include dimension, color, price, and about info. User's shopping cart will show selected items image, quantity and price. User can remove items from their own cart and add more furniture on that order.
